@@ -2,7 +2,7 @@ var express = require('express');
 const http = require('http');
 const path = require('path');
 const PORT = process.env.PORT || 4200
-
+console.log(`Listening on ${ PORT }`)
 express()
   .use(express.static(path.join(__dirname, 'dist')))
   .set('views', path.join(__dirname, 'views'))
