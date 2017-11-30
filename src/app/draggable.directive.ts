@@ -21,7 +21,9 @@ export class DraggableDirective {
   private delta: Position;
   @Output() moved: EventEmitter<Position> = new EventEmitter<Position>();
   constructor(private el: ElementRef) { 
-    Observable.fromEvent(document.body, 'mousemove').subscribe(e => {
+    Observable.fromEvent(document.body, 'mousemove').subscribe(event => {
+      let e: MouseEvent;
+      e = event as MouseEvent;
       if (this.mouseX == null || this.mouseY == null){
         this.mouseX = e.pageX;
         this.mouseY = e.pageY;
@@ -51,7 +53,7 @@ export class DraggableDirective {
           this.el.nativeElement.style.top = this.ely + 'px';
           console.log("top:" + this.el.nativeElement.style.top
               +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);
-          this.delta = new Position ( this.dX, this.dY);
+          this.delta = new Position ( this.dX, this.dY, false);
           this.moved.emit(this.delta);
         }
     }
