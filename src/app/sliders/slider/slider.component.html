@@ -1,0 +1,11 @@
+<div class="card-container"   [@heroState]="resetToPosition" appDraggable (moved)="animation($event)">
+	<span  class="card">
+		<div class = "card-title"><label>{{politician.name}}</label>
+		<label>{{politician.firstName}}</label></div>
+		<img alt="" class="card-img-top portrait img-responsive" src="{{politician.imgUrl}}">
+		<div class="center">
+			<app-price></app-price>
+		</div>
+		
+	</span>
+</div>

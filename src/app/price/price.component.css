@@ -1,0 +1,84 @@
+.range-slider {
+  width: 100%; }
+.margin5{
+	margin:5px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; }
+
+.range-slider__range {
+  -webkit-appearance: none;
+  width: calc(100% - (73px));
+  height: 4px;
+  border-radius: 5px;
+  background: #01BACC;
+  outline: none;
+  padding: 0;
+  margin: 0; }
+  .range-slider__range::-webkit-slider-thumb {
+    appearance: slider-horizontal;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #01BACC;
+    cursor: pointer;
+    transition: background .15s ease-in-out; }
+    .range-slider__range::-webkit-slider-thumb:hover {
+      background: #01BADD; }
+  .range-slider__range:active::-webkit-slider-thumb {
+    background: #01BADD; }
+  .range-slider__range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border: 0;
+    border-radius: 50%;
+    background: #01BACC;
+    cursor: pointer;
+    transition: background .15s ease-in-out; }
+    .range-slider__range::-moz-range-thumb:hover {
+      background: #01BADD; }
+  .range-slider__range:active::-moz-range-thumb {
+    background: #01BADD; }
+
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #43e5f7; }
+
+input[type="range"]::-moz-range-track {
+  background-color: #9a905d; }
+
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #43e5f7; }
+
+input[type="range"]::-ms-fill-upper {
+  background-color: #9a905d; }
+
+.range-slider__value {
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #fff;
+  padding: 5px 10px;
+  margin-left: 8px; }
+  .range-slider__value:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid #fff;
+    border-bottom: 7px solid transparent;
+    content: ''; }
+
+::-moz-range-track {
+  background: #01BACC;
+  border: 0; }
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+  border: 0; }
