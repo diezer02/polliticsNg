@@ -35,7 +35,6 @@ export class DraggableDirective {
       this.mouseY = e.pageY;
         console.log("X:" + this.dX +"  Y:" + this.dY + " mouseDown:" + this.mouseDown);
     });
-    @HostListener('touchmove', ['$event'])
      Observable.fromEvent(document.body, 'touchmove').subscribe(event => {
           let e: TouchEvent;
           e = event as TouchEvent;
@@ -95,7 +94,7 @@ export class DraggableDirective {
     }
     @HostListener('mousedown')
     onMousedown() {
-        this.mouseDown = f;
+        this.mouseDown = true;
     }
   
    @HostListener('mouseleave')
