@@ -48,7 +48,7 @@ export class SliderComponent implements OnInit {
       if( event.isUnleashed() ){
         console.log(event.isUnleashed());
         this.resetToPosition = 'active';
-          //this.el.nativeElement.firstChild.style.cssText = "";
+          // this.el.nativeElement.firstChild.style.cssText = "";
       }else{
          this.resetToPosition = 'inactive';
       }

@@ -3,6 +3,7 @@ import { Directive, ElementRef, HostListener, Output, EventEmitter  } from '@ang
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 
+
 Observable.fromEvent(document.body, 'mousemove').subscribe(e => {
    // console.log(e);
 });
@@ -33,6 +34,22 @@ export class DraggableDirective {
       this.mouseX = e.pageX;
       this.mouseY = e.pageY;
         console.log("X:" + this.dX +"  Y:" + this.dY + " mouseDown:" + this.mouseDown);
+    });
+    @HostListener('touchmove', ['$event'])
+     Observable.fromEvent(document.body, 'touchmove').subscribe(event => {
+          let e: TouchEvent;
+          e = event as TouchEvent;
+         if (this.mouseX == null || this.mouseY == null){
+            this.mouseX = e.changedTouches[0].pageX;
+            this.mouseY = e.changedTouches[0].pageY;
+          }
+          this.dX = this.mouseX - e.changedTouches[0].pageX;
+          this.dY = this.mouseY - e.changedTouches[0].pageY;
+          this.mouseX = e.changedTouches[0].pageX;
+          this.mouseY = e.changedTouches[0].pageY;
+        console.log("X:" + e.changedTouches[0].pageX+"  Y:" + e.changedTouches[0].pageY + " mouseDown:" + this.mouseDown);
+        this.delta = new Position ( this.dX, this.dY, false);
+       this.moved.emit(this.delta);
     });
   
   }
@@ -67,12 +84,18 @@ export class DraggableDirective {
         this.mouseDown = false;
         this.dragStopped();
     }
-  
-  
+    @HostListener('touchstart')
+    onTouchstart() {
+        this.mouseDown = true;
+    }
+   @HostListener('touchend')
+    onTouchend() {
+        this.mouseDown = false;
+        this.dragStopped();
+    }
     @HostListener('mousedown')
     onMousedown() {
-        this.mouseDown = true;
-        this.dragStopped();
+        this.mouseDown = f;
     }
   
    @HostListener('mouseleave')
