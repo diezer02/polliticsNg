@@ -47,12 +47,30 @@ export class DraggableDirective {
           this.mouseX = e.changedTouches[0].pageX;
           this.mouseY = e.changedTouches[0].pageY;
         console.log("X:" + e.changedTouches[0].pageX+"  Y:" + e.changedTouches[0].pageY + " mouseDown:" + this.mouseDown);
-        this.delta = new Position ( this.dX, this.dY, false);
-       this.moved.emit(this.delta);
     });
   
   }
 
+  
+   @HostListener('touchmove', ['$event'])
+    onTouchmove(event: TouchEvent) {
+        if (this.mouseDown) {
+            if (this.elx == null || this.ely == null){
+              this.elx = this.el.nativeElement.offsetLeft + document.body.scrollLeft;
+              this.ely =  this.el.nativeElement.offsetTop + document.body.scrollTop;
+            }
+          this.elx = this.elx - this.dX;
+          this.ely = this.ely - this.dY;
+          this.el.nativeElement.style.position = 'relative';
+          this.el.nativeElement.style.left = this.elx + 'px';
+          this.el.nativeElement.style.top = this.ely + 'px';
+          console.log("top:" + this.el.nativeElement.style.top
+              +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);
+          this.delta = new Position ( this.dX, this.dY, false);
+          this.moved.emit(this.delta);
+        }
+    }
+  
   
   
   @HostListener('mousemove', ['$event'])

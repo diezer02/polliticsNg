@@ -54,9 +54,9 @@ export class SliderComponent implements OnInit {
       }
       if ( this.cardType === 'Left'){
         if ( event.getDx() * this.widthRange / 100 < this.percentRange ){
-         this.heightEl = this.heightEl - event.getDx();
-          this.el.nativeElement.firstChild.style.height = this.heightEl + 'px';
-         console.log("dX: "+event.getDx()+" height: "+this.el.nativeElement.firstChild.offsetHeight);
+        // this.heightEl = this.heightEl - event.getDx();
+          // this.el.nativeElement.firstChild.style.height = this.heightEl + 'px';
+         // console.log("dX: "+event.getDx()+" height: "+this.el.nativeElement.firstChild.offsetHeight);
         }
       }
       if ( this.cardType === 'Center'){
@@ -64,7 +64,7 @@ export class SliderComponent implements OnInit {
       }
       if ( this.cardType === 'Right'){
         if ( event.getDx() * this.widthRange / 100 > this.percentRange ){
-           this.el.nativeElement.firstChildstyle.height = this.heightEl + event.getDx() + 'px';
+           // this.el.nativeElement.firstChildstyle.height = this.heightEl + event.getDx() + 'px';
         }else{
       
           if( event.isUnleashed() ){
