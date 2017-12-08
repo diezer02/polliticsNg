@@ -23,7 +23,7 @@ export class PoliticiansService {
     
   }
   getFactorielle(a: number, b: number){
-     return (a > b) ? parseInt( a / b ) :  parseInt(  b / a )  ;
+     return (a > b) ? Math.trunc( a / b ) :  Math.trunc(  b / a )  ;
   }
   update( index : number ){
     this.index = index;//(index == this.politicians.length ) ? 0: ( index == -1) ? this.politicians.length : index;
