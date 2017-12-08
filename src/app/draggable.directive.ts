@@ -33,7 +33,7 @@ export class DraggableDirective {
       this.dY = this.mouseY - e.pageY;
       this.mouseX = e.pageX;
       this.mouseY = e.pageY;
-        console.log("X:" + this.dX +"  Y:" + this.dY + " mouseDown:" + this.mouseDown);
+      //  console.log("X:" + this.dX +"  Y:" + this.dY + " mouseDown:" + this.mouseDown);
     });
      Observable.fromEvent(document.body, 'touchmove').subscribe(event => {
           let e: TouchEvent;
@@ -46,7 +46,7 @@ export class DraggableDirective {
           this.dY = this.mouseY - e.changedTouches[0].pageY;
           this.mouseX = e.changedTouches[0].pageX;
           this.mouseY = e.changedTouches[0].pageY;
-        console.log("X:" + e.changedTouches[0].pageX+"  Y:" + e.changedTouches[0].pageY + " mouseDown:" + this.mouseDown);
+      //  console.log("X:" + e.changedTouches[0].pageX+"  Y:" + e.changedTouches[0].pageY + " mouseDown:" + this.mouseDown);
     });
   
   }
@@ -64,8 +64,8 @@ export class DraggableDirective {
           this.el.nativeElement.style.position = 'relative';
           this.el.nativeElement.style.left = this.elx + 'px';
           this.el.nativeElement.style.top = this.ely + 'px';
-          console.log("top:" + this.el.nativeElement.style.top
-              +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);
+         /* console.log("top:" + this.el.nativeElement.style.top
+              +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);*/
           this.delta = new Position ( this.dX, this.dY, false);
           this.moved.emit(this.delta);
         }
@@ -85,8 +85,8 @@ export class DraggableDirective {
           this.el.nativeElement.style.position = 'relative';
           this.el.nativeElement.style.left = this.elx + 'px';
           this.el.nativeElement.style.top = this.ely + 'px';
-          console.log("top:" + this.el.nativeElement.style.top
-              +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);
+         /* console.log("top:" + this.el.nativeElement.style.top
+              +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);*/
           this.delta = new Position ( this.dX, this.dY, false);
           this.moved.emit(this.delta);
         }
@@ -118,7 +118,7 @@ export class DraggableDirective {
    @HostListener('mouseleave')
     onMouseleave() {
         this.mouseDown = false;
-        this.dragStopped();
+       // this.dragStopped();
     }
   dragStopped(){
      this.elx = 0;

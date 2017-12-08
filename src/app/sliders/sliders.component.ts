@@ -18,6 +18,7 @@ export class SlidersComponent implements OnInit {
   
   constructor(private politicianService: PoliticiansService, private el: ElementRef) {
   
+   this.politicianService.indexChanged.subscribe(b => this.setPolitician());
     
     
   }
@@ -31,4 +32,10 @@ export class SlidersComponent implements OnInit {
     this.width = this.el.nativeElement.offsetWidth;
   }
 
+  setPolitician(){
+     this.polC = this.politicianService.getCenter();
+    this.polL = this.politicianService.getLeft();
+    this.polR = this.politicianService.getRight();
+  }
+  
 }

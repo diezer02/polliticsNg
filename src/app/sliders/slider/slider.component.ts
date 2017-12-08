@@ -1,5 +1,5 @@
 import { PoliticiansService } from '../politicians.service';
-import { Component, OnInit, ViewEncapsulation, EventEmitter, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, EventEmitter, Input, ElementRef, HostListener } from '@angular/core';
 import { trigger,  state,  style,  animate,  transition} from '@angular/animations';
 
 @Component({
@@ -39,13 +39,18 @@ export class SliderComponent implements OnInit {
     console.log(this.politician);
     
   }
+  
+    swipe(event: MouseEvent) {
+      this.politicianService.swipe(true);
+   }
+  
    animation( event : Position ){
        if ( this.widthRange == null ){ this.widthRange = 0; }
        if ( this.widthEl == null || this.heightEl == null ){
               this.heightEl = this.el.nativeElement.offsetHeight;
               this.widthEl =  this.el.nativeElement.offsetWidth;
        }
-      if( event.isUnleashed() ){
+      if ( event.isUnleashed() ){
         console.log(event.isUnleashed());
         this.resetToPosition = 'active';
           // this.el.nativeElement.firstChild.style.cssText = "";
@@ -54,6 +59,8 @@ export class SliderComponent implements OnInit {
       }
       if ( this.cardType === 'Left'){
         if ( event.getDx() * this.widthRange / 100 < this.percentRange ){
+          // this.resetToPosition = 'active';
+         
         // this.heightEl = this.heightEl - event.getDx();
           // this.el.nativeElement.firstChild.style.height = this.heightEl + 'px';
          // console.log("dX: "+event.getDx()+" height: "+this.el.nativeElement.firstChild.offsetHeight);
@@ -67,7 +74,7 @@ export class SliderComponent implements OnInit {
            // this.el.nativeElement.firstChildstyle.height = this.heightEl + event.getDx() + 'px';
         }else{
       
-          if( event.isUnleashed() ){
+          if ( event.isUnleashed() ){
             // this.el.nativeElement.firstChild.style.cssText = "";
           }
           
