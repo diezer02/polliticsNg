@@ -29,7 +29,7 @@ export class SlidersComponent implements OnInit {
     this.polC = this.politicianService.getCenter();
     this.polL = this.politicianService.getLeft();
     this.polR = this.politicianService.getRight();
-    this.width = this.el.nativeElement.offsetWidth;
+    this.width = this.el.nativeElement.children[0].clientWidth;
   }
 
   setPolitician(){

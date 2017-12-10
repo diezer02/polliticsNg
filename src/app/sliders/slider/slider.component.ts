@@ -10,15 +10,54 @@ import { trigger,  state,  style,  animate,  transition} from '@angular/animatio
   animations: [
     trigger('heroState', [ 
       state('inactive', style({
-        
+        opacity: 1
       })),
       state('active',   style({
         left: '0px',
+        top: '0px',
+        opacity: 1
+      })),
+      state('selected',   style({
+        left: '100%',
+        top: '0px',
+        opacity: 0
+      })),
+      state('rejected',   style({
+        right: '100%',
+        top: '0px',
+        opacity: 0
+      })),
+       state('allLeft',   style({
+        left: '100%',
         top: '0px'
       })),
-      transition('inactive => active', animate('500ms ease-in')),
-      transition('active => inactive', animate('500ms ease-out'))
+      state('allRight',   style({
+        left: '-100%',
+        top: '0px'
+      })),
+      
+      transition('* => active', animate('500ms ease-in')),
+      transition('active => inactive', animate('500ms ease-out')),
+      transition('* => selected', animate('1000ms ease-out')),
+      transition('* => rejected', animate('1000ms ease-out')),
+      transition('* => allLeft', animate('10ms ease-out')),
+       transition('* => allRight', animate('10ms ease-out'))
+    ]),
+      trigger('posState', [ 
+      state('neutral', style({
+        
+      })),
+      state('validate',   style({
+        backgroundColor: 'green'
+      })),
+      state('reject',   style({
+       backgroundColor: 'red'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
     ])
+    
+    
   ]
 })
 export class SliderComponent implements OnInit {
@@ -32,55 +71,75 @@ export class SliderComponent implements OnInit {
   private heightEl: number;
   private widthEl: number;
   private resetToPosition = 'inactive';
+  private cardStyle = 'neutral';
   
-  constructor(private politicianService: PoliticiansService, private el: ElementRef) { }
+  constructor(private politicianService: PoliticiansService, private el: ElementRef) {
+    this.elX = 0;
+    
+   }
   
   ngOnInit() {
     console.log(this.politician);
     
   }
   
-    swipe(event: MouseEvent) {
-      this.politicianService.swipe(true);
+    gesture(event: any) {
+     console.log(event);
+      if ( event.toState === 'selected'){
+         this.politicianService.swipe(false);
+         this.cardStyle = 'neutral';
+        this.resetToPosition = 'allRight';
+        //TODO event de validation
+      }else if ( event.toState === 'allLeft'){
+        this.resetToPosition = 'active';
+      }else if ( event.toState === 'allRight'){
+        this.resetToPosition = 'active';
+      }else if ( event.toState === 'rejected'){
+        this.politicianService.swipe(true);
+        this.cardStyle = 'neutral';
+         this.resetToPosition = 'allLeft';
+        
+      }else if ( event.toState === 'active' || event.toState === 'inactive'){
+        this.elX = 0;
+        this.elY = 0;
+      }
+    //  this.politicianService.swipe(true);
    }
   
    animation( event : Position ){
-       if ( this.widthRange == null ){ this.widthRange = 0; }
+      
+       this.elX +=  event.getDx();
+       this.elY +=  event.getDy();
+       if ( this.widthRange == null ){ this.widthRange = 300; }
        if ( this.widthEl == null || this.heightEl == null ){
               this.heightEl = this.el.nativeElement.offsetHeight;
               this.widthEl =  this.el.nativeElement.offsetWidth;
        }
-      if ( event.isUnleashed() ){
-        console.log(event.isUnleashed());
-        this.resetToPosition = 'active';
-          // this.el.nativeElement.firstChild.style.cssText = "";
-      }else{
-         this.resetToPosition = 'inactive';
-      }
-      if ( this.cardType === 'Left'){
-        if ( event.getDx() * this.widthRange / 100 < this.percentRange ){
-          // this.resetToPosition = 'active';
-         
-        // this.heightEl = this.heightEl - event.getDx();
-          // this.el.nativeElement.firstChild.style.height = this.heightEl + 'px';
-         // console.log("dX: "+event.getDx()+" height: "+this.el.nativeElement.firstChild.offsetHeight);
-        }
-      }
+     
+     
       if ( this.cardType === 'Center'){
-        
-      }
-      if ( this.cardType === 'Right'){
-        if ( event.getDx() * this.widthRange / 100 > this.percentRange ){
-           // this.el.nativeElement.firstChildstyle.height = this.heightEl + event.getDx() + 'px';
+        if ( this.elX  * 100 / this.widthRange < -this.percentRange ){
+          this.cardStyle = 'validate';
+          if ( event.isUnleashed() ) this.resetToPosition = 'selected';
+        }else if ( this.elX  * 100 / this.widthRange  > this.percentRange ){
+          this.cardStyle = 'reject';
+            if ( event.isUnleashed() ) this.resetToPosition = 'rejected';
         }else{
-      
-          if ( event.isUnleashed() ){
+          this.cardStyle = 'neutral';
+          this.resetToPosition = 'active';
+        }
+      }else{
+         if ( event.isUnleashed() ){
+          console.log(event.isUnleashed());
+          this.resetToPosition = 'active';
+          this.cardStyle = 'neutral';
             // this.el.nativeElement.firstChild.style.cssText = "";
-          }
-          
+        }else{
+           this.resetToPosition = 'inactive';
         }
       }
-    
+      console.log(" currentPercentage:" + this.elX +" widthRange:"+this.widthRange +" maxPercentage: " + this.percentRange + " currentPercentage:" + this.elX  * 100/this.widthRange  );
+      
   }
 
 }

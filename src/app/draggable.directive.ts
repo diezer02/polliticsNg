@@ -1,5 +1,5 @@
 import { Position } from './sliders/slider/slider.component';
-import { Directive, ElementRef, HostListener, Output, EventEmitter  } from '@angular/core';
+import { Directive, ElementRef, HostListener, Output, EventEmitter, Input  } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 
@@ -20,6 +20,8 @@ export class DraggableDirective {
   private elx = 0;
   private ely = 0;
   private delta: Position;
+  @Input() xLock: boolean;
+  @Input() yLock: boolean;
   @Output() moved: EventEmitter<Position> = new EventEmitter<Position>();
   constructor(private el: ElementRef) { 
     Observable.fromEvent(document.body, 'mousemove').subscribe(event => {
@@ -61,9 +63,9 @@ export class DraggableDirective {
             }
           this.elx = this.elx - this.dX;
           this.ely = this.ely - this.dY;
-          this.el.nativeElement.style.position = 'relative';
-          this.el.nativeElement.style.left = this.elx + 'px';
-          this.el.nativeElement.style.top = this.ely + 'px';
+          this.el.nativeElement.style.position = 'absolute';
+         if ( !this.xLock ) this.el.nativeElement.style.left = this.elx + 'px';
+         if ( !this.yLock )   this.el.nativeElement.style.top = this.ely + 'px';
          /* console.log("top:" + this.el.nativeElement.style.top
               +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);*/
           this.delta = new Position ( this.dX, this.dY, false);
@@ -83,8 +85,8 @@ export class DraggableDirective {
           this.elx = this.elx - this.dX;
           this.ely = this.ely - this.dY;
           this.el.nativeElement.style.position = 'relative';
-          this.el.nativeElement.style.left = this.elx + 'px';
-          this.el.nativeElement.style.top = this.ely + 'px';
+         if ( !this.xLock ) this.el.nativeElement.style.left = this.elx + 'px';
+         if ( !this.yLock ) this.el.nativeElement.style.top = this.ely + 'px';
          /* console.log("top:" + this.el.nativeElement.style.top
               +"  left:" +  this.el.nativeElement.style.left + " mouseDown:" + this.mouseDown);*/
           this.delta = new Position ( this.dX, this.dY, false);

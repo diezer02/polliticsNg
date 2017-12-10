@@ -23,70 +23,48 @@ export class PoliticiansService {
     
   }
   getFactorielle(a: number, b: number){
+    if ( a === 0 || b === 0) return 0;
      return (a > b) ? Math.trunc( a / b ) :  Math.trunc(  b / a )  ;
   }
   update( index : number ){
-    this.index = index;//(index == this.politicians.length ) ? 0: ( index == -1) ? this.politicians.length : index;
-    let n : number;
+    this.index = index;
     
-    
-    console.log( 'index: ' + this.index);
-    let leftIndex : number;
-    
-    if ( this.index - 1 >= 0 && this.politicians.length >=  this.index){
-     leftIndex = this.index - 1 ;
-     this.polLeft = this.politicians[this.index - 1]; 
-    }else if ( this.index <= 0 ){
-      n = this.getFactorielle(this.index, this.politicians.length );
-      leftIndex =  n * this.politicians.length + this.index;
-      this.polLeft = this.politicians[leftIndex];
-    }else if ( this.index - 2 >= this.politicians.length - 1 ){
-       n = this.getFactorielle(this.index, this.politicians.length + 1);
-      leftIndex = - (  n * this.politicians.length + 1 ) + ( this.index );
-      this.polLeft = this.politicians[ leftIndex];
-    }
-     console.log( 'facteur: ' + (n) );
-   
-     let centerIndex : number;
-    if (  this.index >= 0 && this.politicians.length >=  this.index + 1){
-      centerIndex = this.index;
-      this.polCenter = this.politicians[centerIndex];
-    }else if ( this.index - 1 <= 0 ){
-       n = this.getFactorielle(this.index - 1, this.politicians.length );
-     
-      centerIndex =  n * this.politicians.length + ( this.index - 1 ) ;
-      this.polCenter = this.politicians[ centerIndex ];
-    }else if ( this.index - 1 >= this.politicians.length - 1){
-       n = this.getFactorielle(this.index, this.politicians.length );
-      centerIndex = - ( n * this.politicians.length ) + (this.index );
-      this.polCenter = this.politicians[ centerIndex ];
-    }
-     console.log( 'facteur: ' + (n) );
-   
-    let rightIndex : number;
-    if (  this.index + 1 >= 0 && this.politicians.length >=  this.index + 2){
-      rightIndex = this.index + 1;
-      this.polRight = this.politicians[ rightIndex ];
-    }else if ( this.index - 2 < 0 ){
-       n = this.getFactorielle(this.index - 2, this.politicians.length );
-     
-      rightIndex = n * this.politicians.length + (this.index - 2);
-      this.polRight = this.politicians[ rightIndex ];
-    }else if ( this.index >= this.politicians.length - 1 ){
-       n = this.getFactorielle(this.index, this.politicians.length - 1 );
-     
-      rightIndex = - (n * this.politicians.length - 1) + (this.index );
-      this.polRight = this.politicians[ rightIndex ];
-    }
-     console.log( 'facteur: ' + (n) );
+    this.polRight = this.politicians[this.getIndex(this.index)];
+    this.polCenter = this.politicians[this.getIndex(this.index + 1)];
+    this.polLeft = this.politicians[this.getIndex(this.index + 2)];
    
     
    // console.log("left: "+ this.polLeft.name + " center: " + this.polCenter.name + " right: " + this.polRight.name);
     this.indexChanged.emit(true);
   }
+  
+  getIndex(index: number){
+     if ( index === -4 ) {
+      this.index = this.politicians.length - 2;  
+      return this.index;
+     }
+    if ( index === this.politicians.length + 2 ){
+      this.index = 0;
+      return this.index
+    }  
+    if ( index < 0){
+      index = this.politicians.length + index;
+      return index;
+    } 
+    if ( index >= this.politicians.length){
+      index -= this.politicians.length ;
+      return index;
+    } 
+    if ( index === this.politicians.length ) return (- this.politicians.length + index);
+    
+    return index;
+  }
+  
   swipe (isRight: boolean ){
     if ( isRight ){
       this.update( this.index + 1);
+    }else{
+      this.update( this.index - 1);
     }
   }
   getRight(){
