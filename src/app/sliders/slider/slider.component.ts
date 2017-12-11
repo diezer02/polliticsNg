@@ -103,6 +103,9 @@ export class SliderComponent implements OnInit {
         this.elX = 0;
         this.elY = 0;
       }
+      if ( event.toState === 'active'){
+         this.resetToPosition = 'inactive';
+      }
     //  this.politicianService.swipe(true);
    }
   
@@ -125,8 +128,8 @@ export class SliderComponent implements OnInit {
           this.cardStyle = 'reject';
             if ( event.isUnleashed() ) this.resetToPosition = 'rejected';
         }else{
-          this.cardStyle = 'neutral';
-          this.resetToPosition = 'active';
+           this.cardStyle = 'neutral';
+           if ( event.isUnleashed() ) this.resetToPosition = 'active';
         }
       }else{
          if ( event.isUnleashed() ){

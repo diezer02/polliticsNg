@@ -63,7 +63,7 @@ export class DraggableDirective {
             }
           this.elx = this.elx - this.dX;
           this.ely = this.ely - this.dY;
-          this.el.nativeElement.style.position = 'absolute';
+          this.el.nativeElement.style.position = 'relative';
          if ( !this.xLock ) this.el.nativeElement.style.left = this.elx + 'px';
          if ( !this.yLock )   this.el.nativeElement.style.top = this.ely + 'px';
          /* console.log("top:" + this.el.nativeElement.style.top
