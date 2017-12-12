@@ -1,3 +1,4 @@
+import { Politician } from '../../beans/politician';
 import { PoliticiansService } from '../politicians.service';
 import { Component, OnInit, ViewEncapsulation, EventEmitter, Input, ElementRef, HostListener } from '@angular/core';
 import { trigger,  state,  style,  animate,  transition} from '@angular/animations';
@@ -89,7 +90,7 @@ export class SliderComponent implements OnInit {
          this.politicianService.swipe(false);
          this.cardStyle = 'neutral';
         this.resetToPosition = 'allRight';
-        //TODO event de validation
+        // TODO event de validation
       }else if ( event.toState === 'allLeft'){
         this.resetToPosition = 'active';
       }else if ( event.toState === 'allRight'){
@@ -141,16 +142,12 @@ export class SliderComponent implements OnInit {
            this.resetToPosition = 'inactive';
         }
       }
-      console.log(" currentPercentage:" + this.elX +" widthRange:"+this.widthRange +" maxPercentage: " + this.percentRange + " currentPercentage:" + this.elX  * 100/this.widthRange  );
+      console.log(' currentPercentage:' + this.elX + ' widthRange:' + this.widthRange + ' maxPercentage: ' + this.percentRange + ' currentPercentage:' + this.elX  * 100 / this.widthRange  );
       
   }
 
 }
-export class Politician {
-  constructor(name : string, firstName : string, imgUrl : string){ }
-  
- 
-}
+
 
 export class Position {
   constructor(private dX: number, private dY: number, private isUnleash: boolean){}

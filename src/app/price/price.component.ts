@@ -1,4 +1,4 @@
-import { Politician } from '../sliders/slider/slider.component';
+import { Politician } from '../beans/politician';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({

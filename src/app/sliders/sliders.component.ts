@@ -1,4 +1,5 @@
-import {Politician, SliderComponent} from './slider/slider.component';
+import { Politician } from '../beans/politician';
+import { SliderComponent} from './slider/slider.component';
 import { PoliticiansService } from './politicians.service';
 import { Component, OnInit, ViewEncapsulation, ElementRef, EventEmitter, Output } from '@angular/core';
 

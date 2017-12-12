@@ -1,4 +1,4 @@
-import { Politician } from './slider/slider.component';
+import { Politician } from '../beans/politician';
 import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()

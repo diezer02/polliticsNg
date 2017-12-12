@@ -9,8 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e", 
-	"postinstall": " ng build "
+    "e2e": "ng e2e",
+    "postinstall": " ng build "
   },
   "private": true,
   "dependencies": {
@@ -55,6 +55,6 @@
   },
   "engines": {
     "node": "~6.10.3",
-	"npm": "~3.10.5"
+    "npm": "~3.10.5"
   }
 }
