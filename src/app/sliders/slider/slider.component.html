@@ -1,13 +1,26 @@
 <div class="card-container"   [@heroState]="resetToPosition"  [@posState]="cardStyle" (@heroState.done)="gesture($event)" [yLock]=true appDraggable (moved)="animation($event)">
-	<span  class="card">
-		<div class = "card-title">
-			<label>{{ politician.name }}</label>
-			<label>{{ politician.firstName }}</label>
-		</div>
-		<img class="card-img-top portrait img-responsive" src="{{ politician.imgUrl }}">
-		<div class="center">
-			<app-price></app-price>
+	<span  class="card card-stats">
+		<div class="card-header" data-background-color="gray">
+			<img class="card-img-top portrait img-responsive" src="{{ politician.imgUrl }}">
+		 </div>
+		 <div class="row"></div>
+		<div class = "card-content">
+			 <p class="category">
+				 <label>{{ politician.name }}</label>
+				<label>{{ politician.firstName }}</label>
+			</p>
 		</div>
 		
+		  <div class="card-footer">
+           <div class="stats">
+			
+			<div class="center">
+				<app-price></app-price>
+			</div>
+		 </div>
+		</div>
+	 <app-questions filter="best"></app-questions>
 	</span>
 </div>
+
+				

@@ -1,4 +1,18 @@
-<div class="question-container">
-	<div class="question"><label class="questionLbl">{{ref.questionWording}}</label></div>
-	<app-reponses [list]="ref.responseList"></app-reponses>
+<div class="question-container panel panel-default">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="question">
+		
+			 <span class="side-tab" data-target="#tab1" data-toggle="tab" role="tab" aria-expanded="false">
+	             <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	                 <h4 class="panel-title"><label class="questionLbl">{{ref.questionWording}}</label></h4>
+	             </div>
+	         </span>
+	    </div>
+	    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+	      <div class="panel-body">
+			<app-reponses [list]="ref.responseList"></app-reponses>
+		  </div>
+		</div>
+	</div>
 </div>
+
