@@ -1,74 +1,201 @@
-<div class="login-container signin-container">
-			<div class="row main">
-				<div class="panel-heading">
-	               <div class="panel-title text-center">
-	               		<h1 class="title">Company Name</h1>
-	               		<hr />
-	               	</div>
-	            </div> 
-				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
-						
-						<div class="form-group signin">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group signin">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">Edit Profile</h4>
+                    <p class="category">Complete your profile</p>
+                </div>
+                <div class="card-content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Company (disabled)</label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            	<div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group login signin">
-							<label for="username" class="cols-sm-2 control-label">Username</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
+								  </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                        	<div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                  <div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
-								</div>
-							</div>
-						</div>
+								  </div>
+                                </div>
+                            </div>
+                        
+                             <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <div class="input-group">
+									  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									  <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+								    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
+									 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									 <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+								   </div>
+                                </div>
+                            </div>
+                           
+                       </div>
 
-						<div class="form-group login signin">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-								</div>
-							</div>
-						</div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="firstname" id="firstname"  placeholder="Enter your firstname"/>
+								   </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Enter your lastname"/>
+								   </div>
+                                </div>
+                            </div>
+                        </div>
 
-						<div class="form-group signin">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div>
-						</div>
+                        <div class="row">
+                            <div class="col-md-12">
+                               <div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Enter your address"/>
+								   </div>
+                                </div>
+                            </div>
+                        </div>
 
-						<div class="form-group signin ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-						</div>
-						<div class="login-register">
-				            <a href="index.php">Login</a>
-				         </div>
-				         <div class="signin-register">
-				            <a href="index.php">Login</a>
-				         </div>
-					</form>
-				</div>
-			</div>
-		</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                             <div class="form-group form-black label-floating is-empty">
+                                <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Enter your city"/>
+								</div>
+							 </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Enter your postal code"/>
+								   </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Enter your country"/>
+								   </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                       
+									
+						<div class="row">
+                            <div class="col-md-6">
+                             <div class="form-group form-black label-floating is-empty">
+                                <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+									 <label class="control-label"> Choose your political view </label>
+								</div>
+							 </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
+									 <select  multiple="multiple"  class="form-control" name="political" id="political" >
+										<option value="0" > Extrème gauche </option>
+										<option value="1" > Gauche </option>
+										<option value="2" > Centre </option>
+										<option value="3" > Droite </option>
+										<option value="4" > Extreme droite </option>
+									</select>
+								</div>
+                                </div>
+                            </div>
+                        </div>
+  						<div class="row">
+                            <div class="col-md-6">
+                             <div class="form-group form-black label-floating is-empty">
+                                <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+									 <label class="control-label"> Choose your political parties </label>
+								</div>
+							 </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                   <div class="input-group">
+									<select multiple="multiple"  class="form-control" name="lastname" id="lastname" >
+										<option value="0" > LR </option>
+										<option value="1" > MODEM </option>
+										<option value="2" > Socialistes </option>
+										<option value="2" > FN </option>
+									</select>
+								</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>About Me</label>
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                        <textarea class="form-control" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-profile">
+                <div class="card-avatar">
+                    <a href="#pablo">
+                        <img class="img" src="../assets/img/faces/marc.jpg" />
+                    </a>
+                </div>
+
+                <div class="content">
+                    <h6 class="category text-gray">CEO / Co-Founder</h6>
+                    <h4 class="card-title">Alec Thompson</h4>
+                    <p class="card-content">
+                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owensâ€™ bed design but the back is...
+                    </p>
+                    <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -3,12 +3,12 @@
 		<div class="question">
 		
 			 <span class="side-tab" data-target="#tab1" data-toggle="tab" role="tab" aria-expanded="false">
-	             <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	             <div class="panel-heading" role="tab" [id]="headingId" data-toggle="collapse" data-parent="#accordion" [attr.href]="hRefAreaId" aria-expanded="true" [attr.aria-controls]="areaId">
 	                 <h4 class="panel-title"><label class="questionLbl">{{ref.questionWording}}</label></h4>
 	             </div>
 	         </span>
 	    </div>
-	    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+	    <div [id]="areaId" class="panel-collapse collapse in" role="tabpanel" [attr.aria-labelledby]="headingId">
 	      <div class="panel-body">
 			<app-reponses [list]="ref.responseList"></app-reponses>
 		  </div>

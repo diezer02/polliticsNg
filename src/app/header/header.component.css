@@ -8,6 +8,7 @@
  
  .navbar-header{
  	float:left;
+ 
  }
  .navbar-collapse ul {
   position: relative;
@@ -16,4 +17,10 @@
 .logo{
 	position:relative;
 	top:-10px
+}
+@media  (max-width: 991px) {
+ .navbar-header{
+ 	width:100%;
+ 
+ }
 }
