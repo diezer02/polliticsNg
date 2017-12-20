@@ -24,3 +24,13 @@
  
  }
 }
+
+#loginBox{
+	display:none;
+	padding:5px;
+	margin:5px;
+	
+}
+#loginBox.show{
+	display:inline;
+}

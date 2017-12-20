@@ -1,11 +1,8 @@
 <nav class="navbar navbar-transparent navbar-absolute">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <button type="button" class="navbar-toggle" data-toggle="collapse"  aria-controls="#loginBox">
+               
             </button>
             <a class="navbar-brand" href="#" ><img src="/assets/img/pollitics.png" class="logo" /></a>
         </div>
@@ -32,10 +29,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown" href="#loginBox" aria-expanded="false" aria-controls="loginBox">
                        <i class="material-icons">person</i>
                        <p class="hidden-lg hidden-md">Profile</p>
                     </a>
+                     <div id="loginBox" class="collapse">
+		               <ul class="dropdown-menu">
+                        <li>
+                        	<a routerLink="/login">
+		               		 <div class="icon-bar"><i class="fa fa-sign-in" aria-hidden="true"></i><label class="control-label"> Login </label></div>
+		               		</a>
+		                </li>
+		                <li>
+                        	<a  routerLink="/login" >
+		               		 <div class="icon-bar"><i class="fa fa-sign-in" aria-hidden="true"></i><label class="control-label"> Sign in </label></div>
+		               		</a>
+		                </li>
+		               </ul>
+                	</div>
                 </li>
             </ul>
 
