@@ -16,6 +16,8 @@ import { ReponsesComponent } from './questions/question/reponses/reponses.compon
 import { ReponseComponent } from './questions/question/reponses/reponse/reponse.component';
 import { PoliticiansComponent } from './politicians/politicians.component';
 import { PoliticianComponent } from './politicians/politician/politician.component';
+import { AppRoutingModule } from './app.routing';
+import { RouterModule } from '@angular/router';
  
 @NgModule({
   declarations: [
@@ -34,8 +36,9 @@ import { PoliticianComponent } from './politicians/politician/politician.compone
     PoliticianComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule
+    BrowserModule, BrowserAnimationsModule, RouterModule, AppRoutingModule
   ],
+  
   providers: [PoliticiansService],
   bootstrap: [AppComponent]
 })

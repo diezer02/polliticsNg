@@ -1,6 +1,6 @@
 <div class="card-container"   [@heroState]="resetToPosition"  [@posState]="cardStyle" (@heroState.done)="gesture($event)" [yLock]=true appDraggable (moved)="animation($event)">
 	<span  class="card card-stats">
-		<div class="card-header" data-background-color="gray">
+		<div class=" card-header " data-background-color="gray">
 			<img class="card-img-top portrait img-responsive" src="{{ politician.imgUrl }}">
 		 </div>
 		 <div class="row"></div>

@@ -7507,13 +7507,12 @@ h2.title {
 
 .main-panel {
   position: relative;
-  float: right;
   min-height: 100%;
-  width: calc(100% - 260px); }
+  width:80%; }
   .main-panel .main-content {
     margin-top: 70px;
     padding: 30px 15px;
-    min-height: calc(100% - 123px); }
+    min-height: 80%; }
   .main-panel div .footer {
     border-top: 1px solid #e7e7e7; }
   .main-panel > .navbar {
@@ -11649,4 +11648,9 @@ footer {
 }
 .tim-row h3{
     margin-top: 0;
+}
+
+.margin-y-10{
+	margin-top:50px;
+	margin-bottom:50px;
 }
