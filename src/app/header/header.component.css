@@ -34,3 +34,6 @@
 #loginBox.show{
 	display:inline;
 }
+#loginMini.ul{
+	right:-200px;
+}

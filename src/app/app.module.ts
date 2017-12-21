@@ -18,6 +18,7 @@ import { PoliticiansComponent } from './politicians/politicians.component';
 import { PoliticianComponent } from './politicians/politician/politician.component';
 import { AppRoutingModule } from './app.routing';
 import { RouterModule } from '@angular/router';
+import { SlidebarComponent } from './slidebar/slidebar.component';
  
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RouterModule } from '@angular/router';
     ReponsesComponent,
     ReponseComponent,
     PoliticiansComponent,
-    PoliticianComponent
+    PoliticianComponent,
+    SlidebarComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, RouterModule, AppRoutingModule

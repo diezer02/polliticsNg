@@ -1,4 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-        <app-header></app-header>
-        <div class="row margin-y-10"></div>
-        <router-outlet></router-outlet>
+    <div class="sidebar" data-color='red' data-image="">
+        <app-slidebar ng-blur=" sidebarClose()" ></app-slidebar>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <app-header></app-header>
+    <div class="row margin-y-10"></div>
+    <router-outlet></router-outlet>
