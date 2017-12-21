@@ -19,7 +19,8 @@ import { PoliticianComponent } from './politicians/politician/politician.compone
 import { AppRoutingModule } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { SlidebarComponent } from './slidebar/slidebar.component';
- 
+ import * as $ from 'jquery';
+
 @NgModule({
   declarations: [
     AppComponent,
