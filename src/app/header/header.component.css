@@ -8,11 +8,19 @@
  
  .navbar-header{
  	float:left;
+ 	position:fixed;
+ 	
+ 	top:0px;
  
  }
  .navbar-collapse ul {
   position: relative;
   display: inline-block;
+ }
+  .navbar-collapse {
+    position: fixed;
+    right: 0px;
+    top: 30px;
 }
 .logo{
 	position:relative;
@@ -21,8 +29,17 @@
 @media  (max-width: 991px) {
  .navbar-header{
  	width:100%;
- 
+ 	top:-30px;
  }
+ .navbar-collapse ul {
+  position: relative;
+  display: inline-block;
+ }
+  .navbar-collapse {
+    position: fixed;
+    right: 0px;
+    top: 30px;
+	}
 }
 
 #loginBox{
