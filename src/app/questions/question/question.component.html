@@ -1,18 +1,25 @@
 <div class="question-container panel panel-default">
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		<div class="question">
-		
-			 <span class="side-tab" data-target="#tab1" data-toggle="tab" role="tab" aria-expanded="false">
-	             <div class="panel-heading" role="tab" [id]="headingId" data-toggle="collapse" data-parent="#accordion" [attr.href]="hRefAreaId" aria-expanded="true" [attr.aria-controls]="areaId">
-	                 <h4 class="panel-title"><label class="questionLbl">{{ref.questionWording}}</label></h4>
-	             </div>
-	         </span>
-	    </div>
-	    <div [id]="areaId" class="panel-collapse collapse in" role="tabpanel" [attr.aria-labelledby]="headingId">
-	      <div class="panel-body">
-			<app-reponses [list]="ref.responseList"></app-reponses>
-		  </div>
-		</div>
-	</div>
+	<div class="card-header" data-background-color="red">
+         <div class="nav-tabs-navigation">
+             <div class="nav-tabs-wrapper">
+                 <ul class="nav nav-tabs" data-tabs="tabs">
+                     <li class="active">
+                         <a href="#profile" data-toggle="tab" [id]="headingId" data-toggle="collapse" data-parent="#accordion" [attr.href]="hRefAreaId" aria-expanded="true" [attr.aria-controls]="areaId">
+                            <i class="material-icons">account_balance</i>
+                              {{ref.questionWording}}
+                         <div class="ripple-container"></div></a>
+                     </li>
+                     
+                 </ul>
+             </div>
+         </div>
+     </div>
+      <div class="card-content panel-collapse collapse in" [id]="areaId" role="tabpanel" [attr.aria-labelledby]="headingId" >
+          <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+              	<app-reponses [list]="ref.responseList"></app-reponses>
+              </div>
+          </div>
+     </div>
 </div>
 

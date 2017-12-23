@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { SlidebarComponent } from './slidebar/slidebar.component';
  import * as $ from 'jquery';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SlidebarComponent } from './slidebar/slidebar.component';
     ReponseComponent,
     PoliticiansComponent,
     PoliticianComponent,
-    SlidebarComponent
+    SlidebarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, RouterModule, AppRoutingModule

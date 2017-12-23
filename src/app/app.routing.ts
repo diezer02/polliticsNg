@@ -1,4 +1,6 @@
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { PoliticianComponent } from './politicians/politician/politician.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { NgModule } from '@angular/core';
@@ -9,8 +11,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
        { path: 'login',           component: LoginComponent},
        { path: 'question',           component: QuestionsComponent },
-       
-       { path: 'home',           component: SlidersComponent },
+       { path: 'politician',           component: PoliticianComponent},
+       { path: 'home',           component: HomeComponent },
       { path: '',               redirectTo: 'home', pathMatch: 'full' }
 ];
 

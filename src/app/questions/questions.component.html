@@ -1,10 +1,12 @@
 <div class="questions-container">
 	<div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-12  col-md-12">
+         <div class="card card-nav-tabs" >
 			<div class="questions" *ngFor="let question of questionList">
 				<app-question class="questionLbl" [ref]="question"></app-question>
 			</div>
+          </div>
+			
 		</div>
 	</div>
 </div>
-

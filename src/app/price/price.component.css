@@ -83,3 +83,7 @@ input[type="range"]::-ms-fill-upper {
 input::-moz-focus-inner,
 input::-moz-focus-outer {
   border: 0; }
+  
+  .pagination{
+  width:100%
+  }

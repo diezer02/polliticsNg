@@ -76,4 +76,7 @@ export class PoliticiansService {
   getCenter(){
     return this.polCenter;
   }
+  getPolitician( id : number){
+    return this.politicians[0]
+  }
 }

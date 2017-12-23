@@ -1,3 +1,55 @@
-<p>
-  politician works!
-</p>
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+     <div class="col-md-4">
+            <div class="card card-profile">
+                <div class="card-avatar">
+                    <a href="#pablo">
+                        <img class="img" [src]="politician.imgUrl" />
+                    </a>
+                </div>
+
+                <div class="content">
+                    <h6 class="category text-gray">{{politician.fonction}}</h6>
+                    <h4 class="card-title">{{politician.firstName + ' ' + politician.name}}</h4>
+                    <p class="card-content">
+                    	{{politician.summary}}
+                       <a href="{{politician.linkWiki}}"> Wikipedia </a>
+                    </p>
+                  
+                    
+                    
+	                <div class="card-header card-chart" data-background-color="green">
+	                   <h6 class="category text-gray">Indice de popularit&eacute;</h6>
+	                    <div class="ct-chart" id="dailySalesChart"></div>
+	                </div>
+	                <div class="card-footer">
+	                    <div class="stats">
+	                        <i class="material-icons">access_time</i>43536464 votes dans le mois
+	                    </div>
+	                </div>
+            	</div>
+        	</div>
+            
+    	</div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" >
+                    <h4 class="title">Questions r&eacute;centes:</h4>
+                    <p class="category">Non r&eacute;pondues</p>
+                </div>
+                <div class="card-content">
+                  <app-questions filter="recent|lu" tags="politician.idPolitician">  </app-questions>
+                </div>
+                <div class="card-header" >
+                    <h4 class="title">Questions r&eacute;centes:</h4>
+                    <p class="category">R&eacute;pondues</p>
+                </div>
+                 <div class="card-content">
+                   <app-questions filter="history" tags="politician.idPolitician">  </app-questions>
+                </div>
+            </div>
+        </div>
+       
+	</div>
+</div>
