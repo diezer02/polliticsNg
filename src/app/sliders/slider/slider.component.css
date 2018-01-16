@@ -42,11 +42,11 @@ app-price{
     width:100%;
   }
   .leftCard{
-	display:none;
-}
-.rightCard{
-	display:none;
-}
+		display:none;
+	}
+	.rightCard{
+		display:none;
+	}
 }
 .card-content{
 	text-align: center;

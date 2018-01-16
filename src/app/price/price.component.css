@@ -3,6 +3,7 @@
 .margin5{
 	margin:5px;
 	width:100%;
+	 text-align: center;
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none; }
@@ -84,6 +85,30 @@ input::-moz-focus-inner,
 input::-moz-focus-outer {
   border: 0; }
   
-  .pagination{
-  width:100%
+  .rating{
+  	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
   }
+  .pagination li{
+  display:inline;
+  	/* width: 70%;
+    margin: auto;
+  display:inline-block;*/
+  }
+  .pagination > .active > a, .pagination > li > a{
+  
+  border-radius:  20px;
+  margin:0px 5px;
+  transition: background 2s;
+  }
+  .pagination > .active > a:hover, .pagination > li > a:hover{
+  	 background:#337ab7;
+  }
+  
+@media  (max-width: 1020px) {
+	
+.pagination > .active > a, .pagination > li > a{
+  
+ 	 margin:0px 0px;
+  }
+}

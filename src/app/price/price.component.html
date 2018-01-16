@@ -2,15 +2,18 @@
 	<div class="range-slider">
   		<input class="range-slider__range" type="range" value="{{ note }}" min="0" max="100">
   		
-		<ul class="pagination pagination-primary">
-			<li><a href="#"><</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li class="active"><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">></a></li>
-		</ul>
+		
   		<!-- span class="range-slider__value">0</span-->
+	</div>
+	<div class="rating" >
+		<ul class="pagination pagination-primary" >
+			<li></li>
+			<li><a (click)="rated(1)">1</a></li>
+			<li><a (click)="rated(2)">2</a></li>
+			<li><a (click)="rated(3)">3</a></li>
+			<li><a (click)="rated(4)">4</a></li>
+			<li><a (click)="rated(5)">5</a></li>
+			<li></li>
+		</ul>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 import { Politician } from '../beans/politician';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-price',
@@ -9,9 +9,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class PriceComponent implements OnInit {
   politician: Politician ;
-  constructor() { }
+  rateValue: number;
+  @Output() rated: EventEmitter<number> = new EventEmitter<number>();
+  
+  constructor(private el : ElementRef) {
+   }
 
   ngOnInit() {
   }
-
+  rate(note : number){
+    this.rateValue = note;
+    
+    this.rated.emit();
+  }
 }
